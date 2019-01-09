@@ -1,0 +1,36 @@
+1.创建表
+
+create table users(
+
+    id int,
+
+    name varchar(20) comment '用户名',
+
+    password char(32) comment '密码是32位的值',
+
+    birthday date comment '生日'
+
+)character set utf8 engine MyISAM;
+
+2.修改表
+
+·在users表中添加2条记录
+insert into users values(1,'a','b','1982-01-04'),(2,'b','c','1984-01-05');
+
+·在users表中添加一个字段，用于保存图片路径
+alter table users add path varchar(100) comment '图片路径' after birthday;
+
+·修改name，将其长度改为60
+alter table users modify name varchar(60);
+
+·删除password列
+alter table users drop password;
+
+·修改表名为employee
+alter table users rename to employee;
+
+·将name列改为xingming
+alter table employee change name xingming varchar(60); //新字段需要完整定义
+
+3.删除表
+drop table employee;
